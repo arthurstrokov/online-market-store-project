@@ -1,9 +1,14 @@
 package com.gmail.arthurstrokov.dao.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Data
+@NoArgsConstructor
 @Entity(name = "BuisnessCard")
 @Table(name = "T_BUISNESS_CARD")
 public class BuisnessCard implements Serializable {
@@ -21,57 +26,6 @@ public class BuisnessCard implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", nullable = false)
     private User user;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getWorkingTelephone() {
-        return workingTelephone;
-    }
-
-    public void setWorkingTelephone(String workingTelephone) {
-        this.workingTelephone = workingTelephone;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "BuisnessCard{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", workingTelephone='" + workingTelephone + '\'' +
-                ", user=" + user +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {

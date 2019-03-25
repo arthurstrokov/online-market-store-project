@@ -1,5 +1,6 @@
 package com.gmail.arthurstrokov.dao.properties;
 
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.Objects;
 
+@Getter
 @Component
 public class DatabaseProperties {
 
@@ -15,6 +17,13 @@ public class DatabaseProperties {
     private String databaseUrl;
     private String databaseUsername;
     private String databasePassword;
+
+    private String poolDataSourceClass;
+    private Integer poolMaxSize;
+    private String poolCachePreparedStatements;
+    private Integer poolCachePreparedStatementsSize;
+    private Integer poolCachePreparedStatementsSQLLimit;
+    private String poolUseServerPreparedStatements;
 
     private String dialect;
     private String showSQL;
@@ -27,12 +36,6 @@ public class DatabaseProperties {
     private String autoCloseSession;
     private String autocommit;
 
-    private String poolDataSourceClass;
-    private Integer poolMaxSize;
-    private String poolCachePreparedStatements;
-    private Integer poolCachePreparedStatementsSize;
-    private Integer poolCachePreparedStatementsSQLLimit;
-    private String poolUseServerPreparedStatements;
 
     @Autowired
     public DatabaseProperties(Environment environment) {
@@ -62,81 +65,5 @@ public class DatabaseProperties {
         this.generateStatistics = environment.getProperty("hibernate.generate_statistics");
         this.autoCloseSession = environment.getProperty("hibernate.transaction.auto_close_session");
         this.autocommit = environment.getProperty("hibernate.connection.autocommit");
-    }
-
-    public String getDatabaseUrl() {
-        return databaseUrl;
-    }
-
-    public String getDatabaseUsername() {
-        return databaseUsername;
-    }
-
-    public String getDatabasePassword() {
-        return databasePassword;
-    }
-
-    public String getDialect() {
-        return dialect;
-    }
-
-    public String getShowSQL() {
-        return showSQL;
-    }
-
-    public String getFormatSQL() {
-        return formatSQL;
-    }
-
-    public String getUseSQLComments() {
-        return useSQLComments;
-    }
-
-    public String getHbm2ddlAuto() {
-        return hbm2ddlAuto;
-    }
-
-    public String getCacheUseSecondLevelCache() {
-        return cacheUseSecondLevelCache;
-    }
-
-    public String getCacheRegionFactory() {
-        return cacheRegionFactory;
-    }
-
-    public String getGenerateStatistics() {
-        return generateStatistics;
-    }
-
-    public String getAutoCloseSession() {
-        return autoCloseSession;
-    }
-
-    public String getAutocommit() {
-        return autocommit;
-    }
-
-    public String getPoolDataSourceClass() {
-        return poolDataSourceClass;
-    }
-
-    public Integer getPoolMaxSize() {
-        return poolMaxSize;
-    }
-
-    public String getPoolCachePreparedStatements() {
-        return poolCachePreparedStatements;
-    }
-
-    public Integer getPoolCachePreparedStatementsSize() {
-        return poolCachePreparedStatementsSize;
-    }
-
-    public Integer getPoolCachePreparedStatementsSQLLimit() {
-        return poolCachePreparedStatementsSQLLimit;
-    }
-
-    public String getPoolUseServerPreparedStatements() {
-        return poolUseServerPreparedStatements;
     }
 }

@@ -1,5 +1,7 @@
 package com.gmail.arthurstrokov.dao.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -9,6 +11,8 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Data
+@NoArgsConstructor
 @Entity(name = "Profile")
 @Table(name = "T_PROFILE")
 public class Profile implements Serializable {
@@ -31,48 +35,6 @@ public class Profile implements Serializable {
     @PrimaryKeyJoinColumn
     @NotNull
     private User user;
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "Profile{" +
-                "userId=" + userId +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                ", user=" + user +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {

@@ -1,5 +1,8 @@
 package com.gmail.arthurstrokov.dao.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -7,6 +10,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Data
+@NoArgsConstructor
 @Entity(name = "Audit")
 @Table(name = "T_AUDIT")
 public class Audit implements Serializable {
@@ -25,48 +30,6 @@ public class Audit implements Serializable {
     @JoinColumn(name = "USER_ID", nullable = false)
     @NotNull
     private User user;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEventType() {
-        return eventType;
-    }
-
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
-    }
-
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "Audit{" +
-                "id=" + id +
-                ", eventType='" + eventType + '\'' +
-                ", created=" + created +
-                ", user=" + user +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {

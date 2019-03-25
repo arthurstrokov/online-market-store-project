@@ -20,7 +20,7 @@ public class ItemConverter implements EntityConverter<Item, ItemDTO> {
         item.setDescription(dto.getDescription());
         item.setUniqueNumber(dto.getUniqueNumber());
         item.setPrice(dto.getPrice());
-        item.setAlive(dto.getAlive());
+        item.setIsAlive(dto.getAlive());
         return item;
     }
 

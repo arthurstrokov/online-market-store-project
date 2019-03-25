@@ -1,5 +1,7 @@
 package com.gmail.arthurstrokov.dao.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -8,6 +10,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Data
+@NoArgsConstructor
 @Entity(name = "Comment")
 @Table(name = "T_COMMENT")
 public class Comment implements Serializable {
@@ -30,57 +34,6 @@ public class Comment implements Serializable {
     @JoinColumn(name = "NEWS_ID", nullable = false)
     @NotNull
     private News news;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
-    }
-
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public News getNews() {
-        return news;
-    }
-
-    public void setNews(News news) {
-        this.news = news;
-    }
-
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "id=" + id +
-                ", content='" + content + '\'' +
-                ", created=" + created +
-                ", user=" + user +
-                ", news=" + news +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {

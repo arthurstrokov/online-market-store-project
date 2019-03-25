@@ -64,14 +64,14 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void softDeleteById(Long itemId) {
         Item item = itemDao.findOne(itemId);
-        item.setAlive(false);
+        item.setIsAlive(false);
         itemDao.update(item);
     }
 
     @Override
     public void restoreItem(Long itemId) {
         Item item = itemDao.findOne(itemId);
-        item.setAlive(true);
+        item.setIsAlive(true);
         itemDao.update(item);
     }
 
@@ -93,7 +93,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void create(ItemDTO item) {
         Item convertItem = itemEntityConverter.toEntity(item);
-        convertItem.setAlive(true);
+        convertItem.setIsAlive(true);
         convertItem.setUniqueNumber(String.valueOf(LocalDateTime.now()));
         itemDao.create(convertItem);
     }
@@ -101,7 +101,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void update(ItemDTO item) {
         Item convertItem = itemEntityConverter.toEntity(item);
-        convertItem.setAlive(true);
+        convertItem.setIsAlive(true);
         Item updateItem = itemDao.findBy(convertItem.getUniqueNumber());
         updateItem.setName(item.getName());
         updateItem.setDescription(item.getDescription());
@@ -113,7 +113,7 @@ public class ItemServiceImpl implements ItemService {
     public void copyItem(Long itemId) {
         Item item = itemDao.findOne(itemId);
         Item copyItem = new Item();
-        copyItem.setAlive(true);
+        copyItem.setIsAlive(true);
         copyItem.setName(item.getName());
         copyItem.setDescription(item.getDescription());
         copyItem.setPrice(item.getPrice());

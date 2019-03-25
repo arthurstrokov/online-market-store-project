@@ -20,7 +20,7 @@ public class ThingConverter {
             item.setName(element.getName());
             item.setUniqueNumber(String.valueOf(LocalDateTime.now()));
             item.setPrice(element.getPrice());
-            item.setAlive(element.getAlive());
+            item.setIsAlive(element.getAlive());
             items.add(item);
         }
         return items;

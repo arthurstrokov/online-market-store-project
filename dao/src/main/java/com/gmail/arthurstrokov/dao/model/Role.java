@@ -1,5 +1,8 @@
 package com.gmail.arthurstrokov.dao.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -8,6 +11,8 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Data
+@NoArgsConstructor
 @Entity(name = "Role")
 @Table(name = "T_ROLE")
 public class Role implements Serializable {
@@ -27,39 +32,6 @@ public class Role implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "PERMISSION_ID", nullable = false, updatable = false)}
     )
     private Set<Permission> permissions = new HashSet<>();
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Set<Permission> getPermissions() {
-        return permissions;
-    }
-
-    public void setPermissions(Set<Permission> permissions) {
-        this.permissions = permissions;
-    }
-
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", permissions=" + permissions +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {
