@@ -19,8 +19,12 @@ import java.util.List;
 public class ThingParser {
 
     private static final Logger logger = LogManager.getLogger(ThingParser.class.getName());
+    private final FileProperties fileProperties;
+
     @Autowired
-    private FileProperties fileProperties;
+    public ThingParser(FileProperties fileProperties) {
+        this.fileProperties = fileProperties;
+    }
 
     public List<Thing> parse() {
         File file = new File(fileProperties.getItemsFilePath());
@@ -29,7 +33,7 @@ public class ThingParser {
             JAXBContext jaxbContext = JAXBContext.newInstance(Store.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             Store storeItems = (Store) jaxbUnmarshaller.unmarshal(file);
-            things = new ArrayList<>(storeItems.getItems());
+            things = new ArrayList<>(storeItems.getThings());
         } catch (JAXBException e) {
             logger.error(e.getMessage(), e);
         }

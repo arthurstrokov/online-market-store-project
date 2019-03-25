@@ -2,12 +2,16 @@ package com.gmail.arthurstrokov.service.model;
 
 import com.gmail.arthurstrokov.dao.model.Permission;
 import com.gmail.arthurstrokov.dao.model.User;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
 
+@Data
+@NoArgsConstructor
 public class UserPrincipal implements UserDetails {
 
     private Long id;
@@ -29,49 +33,6 @@ public class UserPrincipal implements UserDetails {
         this.authorities = AuthorityUtils.createAuthorityList(authorityList);
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getRolename() {
-        return rolename;
-    }
-
-    public void setRolename(String rolename) {
-        this.rolename = rolename;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return isEnabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        isEnabled = enabled;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -88,12 +49,7 @@ public class UserPrincipal implements UserDetails {
     }
 
     @Override
-    public List<GrantedAuthority> getAuthorities() {
-        return authorities;
+    public boolean isEnabled() {
+        return isEnabled;
     }
-
-    public void setAuthorities(List<GrantedAuthority> authorities) {
-        this.authorities = authorities;
-    }
-
 }

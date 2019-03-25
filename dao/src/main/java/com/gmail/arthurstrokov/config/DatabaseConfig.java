@@ -32,7 +32,7 @@ public class DatabaseConfig {
     public SpringLiquibase springLiquibase(DataSource dataSource) {
         SpringLiquibase liquibase = new SpringLiquibase();
         liquibase.setDataSource(dataSource);
-        liquibase.setDropFirst(Boolean.TRUE);
+        liquibase.setDropFirst(Boolean.FALSE);
         liquibase.setChangeLog("classpath:migration/db.changelog.xml");
         return liquibase;
     }
@@ -59,16 +59,16 @@ public class DatabaseConfig {
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         Properties properties = new Properties();
-        properties.put(Environment.DIALECT, databaseProperties.getDialect());
+        /*properties.put(Environment.DIALECT, databaseProperties.getDialect());
         properties.put(Environment.SHOW_SQL, databaseProperties.getShowSQL());
         properties.put(Environment.FORMAT_SQL, databaseProperties.getFormatSQL());
         properties.put(Environment.USE_SQL_COMMENTS, databaseProperties.getUseSQLComments());
+        properties.put(Environment.GENERATE_STATISTICS, databaseProperties.getGenerateStatistics());*/
 
         properties.put(Environment.HBM2DDL_AUTO, databaseProperties.getHbm2ddlAuto());
         properties.put(Environment.USE_SECOND_LEVEL_CACHE, databaseProperties.getCacheUseSecondLevelCache());
         properties.put(Environment.CACHE_REGION_FACTORY, databaseProperties.getCacheRegionFactory());
 
-        properties.put(Environment.GENERATE_STATISTICS, databaseProperties.getGenerateStatistics());
         properties.put(Environment.AUTO_CLOSE_SESSION, databaseProperties.getAutoCloseSession());
         properties.put(Environment.AUTOCOMMIT, databaseProperties.getAutocommit());
         factoryBean.setHibernateProperties(properties);
