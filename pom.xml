@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.gmail.arthurstrokov</groupId>
+    <artifactId>store</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>store</name>
+    <modules>
+        <module>dao</module>
+        <module>service</module>
+        <module>web</module>
+    </modules>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!--https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-api.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-web</artifactId>
+            <version>${log4j-web.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j-slf4j-impl.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <!--rest api-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${for.rest.api.jackson.core.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${fileupload.version}</version>
+        </dependency>
+    </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <hibernate.version>5.3.6.Final</hibernate.version>
+        <hibernate-ehcache.version>5.3.6.Final</hibernate-ehcache.version>
+        <hibernate.validator.version>6.0.13.Final</hibernate.validator.version>
+        <HikariCP.version>3.2.0</HikariCP.version>
+        <el.version>3.0.1-b04</el.version>
+        <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
+        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+        <jstl.version>1.2</jstl.version>
+        <log4j-core.version>2.11.1</log4j-core.version>
+        <log4j-api.version>2.11.1</log4j-api.version>
+        <log4j-web.version>2.11.1</log4j-web.version>
+        <log4j-slf4j-impl.version>2.11.1</log4j-slf4j-impl.version>
+        <junit.jupiter.version>5.3.1</junit.jupiter.version>
+        <junit.version>4.12</junit.version>
+        <spring.version>5.1.0.RELEASE</spring.version>
+        <maven.war.plugin.version>3.2.2</maven.war.plugin.version>
+        <maven.surefire.plugin.version>2.22.0</maven.surefire.plugin.version>
+        <maven.skip.test>true</maven.skip.test>
+        <liquibase.version>3.6.2</liquibase.version>
+        <for.rest.api.jackson.core.version>2.9.8</for.rest.api.jackson.core.version>
+        <fileupload.version>1.3.3</fileupload.version>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                    <skipTests>${maven.skip.test}</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

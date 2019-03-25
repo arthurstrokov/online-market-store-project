@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n"/>
+        </Console>
+        <RollingFile name="RollingFile"
+                     filename="logs/application.log"
+                     filePattern="logs/application-%i.log">
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+        <RollingFile name="RollingFileDao"
+                     filename="logs/applicationDao.log"
+                     filePattern="logs/applicationDao-%i.log">
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+        <RollingFile name="RollingFileHibernate"
+                     filename="logs/applicationHibernate.log"
+                     filePattern="logs/applicationHibernate-%i.log">
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+        <RollingFile name="RollingFileHibernateDescriptor"
+                     filename="logs/applicationHibernateDescriptor.log"
+                     filePattern="logs/applicationHibernateDescriptor-%i.log">
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+    </appenders>
+    <loggers>
+        <Logger name="com.gmail.arthurstrokov.dao" level="info">
+            <AppenderRef ref="RollingFileDao"/>
+        </Logger>
+        <Logger name="org.hibernate.sql" level="debug">
+            <AppenderRef ref="RollingFileHibernate"/>
+        </Logger>
+        <Logger name="org.hibernate.type.descriptor.sql" level="trace">
+            <AppenderRef ref="RollingFileHibernateDescriptor"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="Console" level="INFO"/>
+            <AppenderRef ref="RollingFile" level="WARN"/>
+            <AppenderRef ref="RollingFileDao" level="INFO"/>
+            <AppenderRef ref="RollingFileHibernate" level="DEBUG"/>
+            <AppenderRef ref="RollingFileHibernateDescriptor" level="TRACE"/>
+        </Root>
+    </loggers>
+</configuration>

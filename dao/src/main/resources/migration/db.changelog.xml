@@ -1,0 +1,755 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-1">
+        <createTable tableName="T_AUDIT">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="CREATED" type="datetime"/>
+            <column name="EVENT_TYPE" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-2">
+        <createTable tableName="T_COMMENT">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="CONTENT" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="datetime"/>
+            <column name="USER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NEWS_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-3">
+        <createTable tableName="T_ITEM">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="DESCRIPTION" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRICE" type="DECIMAL(19, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_ALIVE" type="BOOLEAN" defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UNIQUE_NUMBER" type="VARCHAR(23)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-4">
+        <createTable tableName="T_NEWS">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="CONTENT" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="datetime"/>
+            <column name="TITLE" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-5">
+        <createTable tableName="T_ORDER">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="CREATED" type="datetime"/>
+            <column name="QUANTITY" type="INT"/>
+            <column name="STATUS" type="VARCHAR(255)"/>
+            <column name="ITEM_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-6">
+        <createTable tableName="T_PERMISSION">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-7">
+        <createTable tableName="T_PROFILE">
+            <column name="USER_ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ADDRESS" type="VARCHAR(50)"/>
+            <column name="PHONE" type="VARCHAR(12)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-8">
+        <createTable tableName="T_ROLE">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-9">
+        <createTable tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="PERMISSION_ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-10">
+        <createTable tableName="T_USER">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="EMAIL" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PASSWORD" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SURNAME" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="BOOLEAN" defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-11">
+        <createIndex indexName="FK2ticci0vgifmed8i7mjluo5ch" tableName="T_ORDER">
+            <column name="USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-12">
+        <createIndex indexName="FK31ev2oprblmmwf6d5srontx8f" tableName="T_ROLE_PERMISSION">
+            <column name="PERMISSION_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-13">
+        <createIndex indexName="FKarcirgjq1lmcoew4k7sa1l8c4" tableName="T_AUDIT">
+            <column name="USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-14">
+        <createIndex indexName="FKb5d0apamthl7dvv4kpkuj5wyl" tableName="T_COMMENT">
+            <column name="USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-15">
+        <createIndex indexName="FKdkd4wtatiq4gri79mrk38jrdv" tableName="T_NEWS">
+            <column name="USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-16">
+        <createIndex indexName="FKjh6ijuln3ljspe5rospr97ijc" tableName="T_USER">
+            <column name="ROLE_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-17">
+        <createIndex indexName="FKr0v3788nyr9rojqkpa46qocbt" tableName="T_ORDER">
+            <column name="ITEM_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-18">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="T_ORDER"
+                                 constraintName="FK2ticci0vgifmed8i7mjluo5ch" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="ID" referencedTableName="T_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-19">
+        <addForeignKeyConstraint baseColumnNames="PERMISSION_ID" baseTableName="T_ROLE_PERMISSION"
+                                 constraintName="FK31ev2oprblmmwf6d5srontx8f" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="ID" referencedTableName="T_PERMISSION" validate="true"/>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-20">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="T_AUDIT"
+                                 constraintName="FKarcirgjq1lmcoew4k7sa1l8c4" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="ID" referencedTableName="T_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-21">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="T_COMMENT"
+                                 constraintName="FKb5d0apamthl7dvv4kpkuj5wyl" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="ID" referencedTableName="T_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-22">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="T_NEWS"
+                                 constraintName="FKdkd4wtatiq4gri79mrk38jrdv" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="ID" referencedTableName="T_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-23">
+        <addForeignKeyConstraint baseColumnNames="ROLE_ID" baseTableName="T_USER"
+                                 constraintName="FKjh6ijuln3ljspe5rospr97ijc" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="ID" referencedTableName="T_ROLE" validate="true"/>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-24">
+        <addForeignKeyConstraint baseColumnNames="ITEM_ID" baseTableName="T_ORDER"
+                                 constraintName="FKr0v3788nyr9rojqkpa46qocbt" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="ID" referencedTableName="T_ITEM" validate="true"/>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-25">
+        <addForeignKeyConstraint baseColumnNames="ROLE_ID" baseTableName="T_ROLE_PERMISSION"
+                                 constraintName="FKsgbw04ptcabb8jeclm8buvb6v" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="ID" referencedTableName="T_ROLE" validate="true"/>
+    </changeSet>
+    <!---->
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-26">
+        <addForeignKeyConstraint baseColumnNames="NEWS_ID" baseTableName="T_COMMENT"
+                                 constraintName="FKltnl4nkgy60ptf653vs9ip8kk" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="ID" referencedTableName="T_NEWS" validate="true"/>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-27">
+        <createIndex indexName="FKltnl4nkgy60ptf653vs9ip8kk" tableName="T_COMMENT">
+            <column name="NEWS_ID"/>
+        </createIndex>
+    </changeSet>
+    <!---->
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-28">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="T_PROFILE"
+                                 constraintName="FKltnl4nkgy60ptf653vs9ip8jj" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="ID" referencedTableName="T_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-29">
+        <createIndex indexName="FKltnl4nkgy60ptf653vs9ip8jj" tableName="T_PROFILE">
+            <column name="USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <!--ROLE-->
+    <changeSet author="arthurstrokov (generated)" id="1538946582129-30">
+        <insert tableName="T_ROLE">
+            <column name="ID" valueNumeric="1"/>
+            <column name="NAME" value="SECURITY_USER"/>
+        </insert>
+        <insert tableName="T_ROLE">
+            <column name="ID" valueNumeric="2"/>
+            <column name="NAME" value="SALE_USER"/>
+        </insert>
+        <insert tableName="T_ROLE">
+            <column name="ID" valueNumeric="3"/>
+            <column name="NAME" value="CUSTOMER_USER"/>
+        </insert>
+        <insert tableName="T_ROLE">
+            <column name="ID" valueNumeric="4"/>
+            <column name="NAME" value="API_USER"/>
+        </insert>
+    </changeSet>
+    <!--PERMISSIONS-->
+    <changeSet author="arthurstrokov (generated)" id="1539245833583-31">
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="1"/>
+            <column name="NAME" value="CHANGE_USER_ROLE"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="2"/>
+            <column name="NAME" value="CHANGE_USER_PASSWORD"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="3"/>
+            <column name="NAME" value="DISABLE_USER"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="4"/>
+            <column name="NAME" value="DELETE_USER"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="5"/>
+            <column name="NAME" value="CREATE_NEWS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="6"/>
+            <column name="NAME" value="UPDATE_NEWS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="7"/>
+            <column name="NAME" value="DELETE_NEWS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="8"/>
+            <column name="NAME" value="DELETE_COMMENTS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="9"/>
+            <column name="NAME" value="CREATE_COMMENTS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="10"/>
+            <column name="NAME" value="VIEW_COMMENTS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="11"/>
+            <column name="NAME" value="CREATE_ITEMS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="12"/>
+            <column name="NAME" value="UPDATE_ITEMS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="13"/>
+            <column name="NAME" value="COPY_ITEMS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="14"/>
+            <column name="NAME" value="REMOVE_ITEMS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="15"/>
+            <column name="NAME" value="UPLOAD_ITEMS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="16"/>
+            <column name="NAME" value="SHOW_USER_ORDERS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="17"/>
+            <column name="NAME" value="SHOW_ORDERS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="18"/>
+            <column name="NAME" value="CHANGE_ORDER_STATUS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="19"/>
+            <column name="NAME" value="CREATE_ORDER"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="20"/>
+            <column name="NAME" value="UPDATE_PROFILE"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="21"/>
+            <column name="NAME" value="VIEW_NEWS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="22"/>
+            <column name="NAME" value="VIEW_USERS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="23"/>
+            <column name="NAME" value="VIEW_STORE"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="24"/>
+            <column name="NAME" value="VIEW_ITEMS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="25"/>
+            <column name="NAME" value="SECURITY"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="26"/>
+            <column name="NAME" value="CUSTOMER"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="27"/>
+            <column name="NAME" value="SALE"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="28"/>
+            <column name="NAME" value="DELETE_ITEMS"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="29"/>
+            <column name="NAME" value="API"/>
+        </insert>
+        <insert tableName="T_PERMISSION">
+            <column name="ID" valueNumeric="30"/>
+            <column name="NAME" value="MANAGE_BUISNESS_CARD"/>
+        </insert>
+    </changeSet>
+    <!--ROLE_PERMISSION-->
+    <changeSet author="root (generated)" id="1539245833583-32">
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="1"/>
+            <column name="PERMISSION_ID" valueNumeric="1"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="1"/>
+            <column name="PERMISSION_ID" valueNumeric="2"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="1"/>
+            <column name="PERMISSION_ID" valueNumeric="3"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="1"/>
+            <column name="PERMISSION_ID" valueNumeric="4"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="5"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="6"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="7"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="8"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="3"/>
+            <column name="PERMISSION_ID" valueNumeric="9"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="10"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="3"/>
+            <column name="PERMISSION_ID" valueNumeric="10"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="11"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="4"/>
+            <column name="PERMISSION_ID" valueNumeric="11"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="4"/>
+            <column name="PERMISSION_ID" valueNumeric="12"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="13"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="14"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="4"/>
+            <column name="PERMISSION_ID" valueNumeric="14"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="15"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="16"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="3"/>
+            <column name="PERMISSION_ID" valueNumeric="17"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="18"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="3"/>
+            <column name="PERMISSION_ID" valueNumeric="19"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="3"/>
+            <column name="PERMISSION_ID" valueNumeric="20"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="21"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="3"/>
+            <column name="PERMISSION_ID" valueNumeric="21"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="1"/>
+            <column name="PERMISSION_ID" valueNumeric="22"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="22"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="23"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="3"/>
+            <column name="PERMISSION_ID" valueNumeric="24"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="1"/>
+            <column name="PERMISSION_ID" valueNumeric="25"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="3"/>
+            <column name="PERMISSION_ID" valueNumeric="26"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="27"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="4"/>
+            <column name="PERMISSION_ID" valueNumeric="28"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="4"/>
+            <column name="PERMISSION_ID" valueNumeric="29"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="2"/>
+            <column name="PERMISSION_ID" valueNumeric="30"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="3"/>
+            <column name="PERMISSION_ID" valueNumeric="30"/>
+        </insert>
+        <insert tableName="T_ROLE_PERMISSION">
+            <column name="ROLE_ID" valueNumeric="4"/>
+            <column name="PERMISSION_ID" valueNumeric="30"/>
+        </insert>
+    </changeSet>
+    <!--USERS-->
+    <changeSet author="arthurstrokov (generated)" id="1539245833583-33">
+        <insert tableName="T_USER">
+            <column name="ID" valueNumeric="1"/>
+            <column name="EMAIL" value="security@gmail.com"/>
+            <column name="NAME" value="SECURITY"/>
+            <column name="PASSWORD" value="$2a$04$iZCBz20/x0djabCUIyATG.XWwLGeOZUy.u1ZFLSsMRO7SZn6O4zsy"/>
+            <column name="SURNAME" value="SEC"/>
+            <column name="STATUS" valueBoolean="true"/>
+            <column name="ROLE_ID" valueNumeric="1"/>
+        </insert>
+        <insert tableName="T_USER">
+            <column name="ID" valueNumeric="2"/>
+            <column name="EMAIL" value="sale@gmail.com"/>
+            <column name="NAME" value="SALE"/>
+            <column name="PASSWORD" value="$2a$04$iZCBz20/x0djabCUIyATG.XWwLGeOZUy.u1ZFLSsMRO7SZn6O4zsy"/>
+            <column name="SURNAME" value="SEL"/>
+            <column name="STATUS" valueBoolean="true"/>
+            <column name="ROLE_ID" valueNumeric="2"/>
+        </insert>
+        <insert tableName="T_USER">
+            <column name="ID" valueNumeric="3"/>
+            <column name="EMAIL" value="customer@gmail.com"/>
+            <column name="NAME" value="CUSTOMER"/>
+            <column name="PASSWORD" value="$2a$04$iZCBz20/x0djabCUIyATG.XWwLGeOZUy.u1ZFLSsMRO7SZn6O4zsy"/>
+            <column name="SURNAME" value="CUS"/>
+            <column name="STATUS" valueBoolean="true"/>
+            <column name="ROLE_ID" valueNumeric="3"/>
+        </insert>
+        <insert tableName="T_USER">
+            <column name="ID" valueNumeric="4"/>
+            <column name="EMAIL" value="api@gmail.com"/>
+            <column name="NAME" value="API"/>
+            <column name="PASSWORD" value="$2a$04$iZCBz20/x0djabCUIyATG.XWwLGeOZUy.u1ZFLSsMRO7SZn6O4zsy"/>
+            <column name="SURNAME" value="API"/>
+            <column name="STATUS" valueBoolean="true"/>
+            <column name="ROLE_ID" valueNumeric="4"/>
+        </insert>
+    </changeSet>
+    <!--PROFILE-->
+    <changeSet author="arthurstrokov (generated)" id="1538946582129-34">
+        <insert tableName="T_PROFILE">
+            <column name="USER_ID" valueNumeric="1"/>
+            <column name="ADDRESS" value="minsk"/>
+            <column name="PHONE" value="375291555376"/>
+        </insert>
+        <insert tableName="T_PROFILE">
+            <column name="USER_ID" valueNumeric="2"/>
+            <column name="ADDRESS" value="minsk"/>
+            <column name="PHONE" value="375291555376"/>
+        </insert>
+        <insert tableName="T_PROFILE">
+            <column name="USER_ID" valueNumeric="3"/>
+            <column name="ADDRESS" value="minsk"/>
+            <column name="PHONE" value="375291555376"/>
+        </insert>
+        <insert tableName="T_PROFILE">
+            <column name="USER_ID" valueNumeric="4"/>
+            <column name="ADDRESS" value="minsk"/>
+            <column name="PHONE" value="375291555376"/>
+        </insert>
+    </changeSet>
+    <!--items-->
+    <changeSet author="arthurstrokov (generated)" id="1539290323299-35">
+        <insert tableName="T_ITEM">
+            <column name="ID" valueNumeric="1"/>
+            <column name="DESCRIPTION"
+                    value="Операционная система DOS Диагональ экрана 15.6 '' Разрешение экрана 1366x768 (HD) Сенсорный экран нет  Модель процессора Intel Celeron N3060             Объём оперативной памяти 4 ГБ"/>
+            <column name="NAME" value="Ноутбук HP 15-ra046ur (3QT60EA)"/>
+            <column name="PRICE" valueNumeric="2645.00"/>
+            <column name="IS_ALIVE" valueBoolean="true"/>
+            <column name="UNIQUE_NUMBER" value="2018-10-11T15:02:33.769"/>
+        </insert>
+        <insert tableName="T_ITEM">
+            <column name="ID" valueNumeric="2"/>
+            <column name="DESCRIPTION"
+                    value="Процессор: Intel Core i3 – i5 |  Графика: Intel HD Graphics 620 | Оперативная память: 8 Гб |  Экран: 13,3-дюймовый QHD+ (3200 x 1800) | Встроенная память: 256 Гб SSD;"/>
+            <column name="NAME" value="ASUS ZENBOOK UX310UA"/>
+            <column name="PRICE" valueNumeric="3467.00"/>
+            <column name="IS_ALIVE" valueBoolean="true"/>
+            <column name="UNIQUE_NUMBER" value="2018-10-11T15:02:33.779"/>
+        </insert>
+        <insert tableName="T_ITEM">
+            <column name="ID" valueNumeric="3"/>
+            <column name="DESCRIPTION"
+                    value="13.3 2560 x 1600 глянцевый, Intel Core i5 7360U 2300 МГц, 8 ГБ, SSD 128 ГБ, Intel Iris Plus Graphics 640, Mac OS, цвет крышки серый, цвет корпуса серый"/>
+            <column name="NAME" value="Apple MacBook Pro 13"/>
+            <column name="PRICE" valueNumeric="2725.00"/>
+            <column name="IS_ALIVE" valueBoolean="true"/>
+            <column name="UNIQUE_NUMBER" value="2018-10-11T15:02:33.789"/>
+        </insert>
+        <insert tableName="T_ITEM">
+            <column name="ID" valueNumeric="4"/>
+            <column name="DESCRIPTION"
+                    value="15.6 1920 x 1080 глянцевый, Intel Core i5 8250U 1600 МГц, 8 ГБ, SSD 256 ГБ, NVIDIA GeForce MX150, цвет крышки темно-серый, цвет корпуса темно-серый"/>
+            <column name="NAME" value="Xiaomi Mi Notebook Pro 15.6 JYU4036CN"/>
+            <column name="PRICE" valueNumeric="2095.00"/>
+            <column name="IS_ALIVE" valueBoolean="false"/>
+            <column name="UNIQUE_NUMBER" value="2018-10-11T15:02:33.799"/>
+        </insert>
+    </changeSet>
+    <!--orders-->
+    <changeSet author="arthurstrokov (generated)" id="1539290727424-36">
+        <insert tableName="T_ORDER">
+            <column name="ID" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2018-10-11T23:45:06"/>
+            <column name="QUANTITY"/>
+            <column name="STATUS" value="NEW"/>
+            <column name="ITEM_ID" valueNumeric="2"/>
+            <column name="USER_ID" valueNumeric="3"/>
+        </insert>
+        <insert tableName="T_ORDER">
+            <column name="ID" valueNumeric="2"/>
+            <column name="CREATED" valueDate="2018-10-11T23:45:08"/>
+            <column name="QUANTITY"/>
+            <column name="STATUS" value="NEW"/>
+            <column name="ITEM_ID" valueNumeric="3"/>
+            <column name="USER_ID" valueNumeric="3"/>
+        </insert>
+    </changeSet>
+    <!--news-->
+    <changeSet author="arthurstrokov (generated)" id="1539265239955-37">
+        <insert tableName="T_NEWS">
+            <column name="ID" valueNumeric="1"/>
+            <column name="CONTENT"
+                    value="Сегодня мы направляемся в жилой комплекс на улице Гурского, известный своими малогабаритными квартирами. Здесь семья из четырех человек купила «евротрешку» — это когда есть две отдельные комнаты, а гостиная совмещена с кухней. По их меркам, условия весьма стесненные: всего 65 «квадратов». Но в этих условиях они намерены жить долго и счастливо, так что дизайнеры постараются вместить в квартиру все и даже больше — от рабочих мест до четырех велосипедов."/>
+            <column name="CREATED" valueDate="2018-10-11T16:27:30"/>
+            <column name="TITLE"
+                    value="Битва дизайнеров. Вместить все и даже больше в «евротрешку» для счастья семьи из четырех человек"/>
+            <column name="USER_ID" valueNumeric="2"/>
+        </insert>
+        <insert tableName="T_NEWS">
+            <column name="ID" valueNumeric="2"/>
+            <column name="CONTENT"
+                    value="У бывшего сотрудника одного из банков столицы был доступ к базе данных, в которой хранились номера телефонов клиентов. Пользуясь этим, он в онлайн-режиме оформлял на них кредитные договоры и получал от их имени кредиты. Общая сумма составила 10 тысяч рублей, которые он проиграл в казино.&#10;&#10;Возбуждено уголовное дело по ч.3 ст. 212 УК РБ (Хищение путем использования компьютерной техники).&#10;&#10;Санкция этой части статьи предусматривает наказание в виде лишения свободы на срок от трех до десяти лет с конфискацией имущества или без конфискации и с лишением права занимать определенные должности или заниматься определенной деятельностью или без лишения.&#10;&#10;"/>
+            <column name="CREATED" valueDate="2018-10-11T13:29:00"/>
+            <column name="TITLE"
+                    value="Бывший сотрудник столичного банка оформлял кредиты на других людей, а деньги тратил в казино."/>
+            <column name="USER_ID" valueNumeric="2"/>
+        </insert>
+    </changeSet>
+    <!--comments-->
+    <changeSet author="arthurstrokov (generated)" id="1539265239955-38">
+        <insert tableName="T_COMMENT">
+            <column name="ID" valueNumeric="1"/>
+            <column name="CONTENT"
+                    value="Основной вопрос, не обяжет ли банк пострадавших граждан эти кредиты выплачиввать, как это нередко происходит? "/>
+            <column name="CREATED" valueDate="2018-10-11T16:31:29"/>
+            <column name="USER_ID" valueNumeric="3"/>
+            <column name="NEWS_ID" valueNumeric="1"/>
+        </insert>
+        <insert tableName="T_COMMENT">
+            <column name="ID" valueNumeric="2"/>
+            <column name="CONTENT"
+                    value="Новой обладательницей звания «Мисс тюнинг» по версии жюри знаменитой международной ярмарки автотюнинга Tuning World Bodensee стала 24-летняя Лаура Фитцек из немецкого города Зарлуи. За победу она получила новый Nissan Micra.&#10;&#10;"/>
+            <column name="CREATED" valueDate="2018-10-11T16:39:08"/>
+            <column name="USER_ID" valueNumeric="3"/>
+            <column name="NEWS_ID" valueNumeric="2"/>
+        </insert>
+        <insert tableName="T_COMMENT">
+            <column name="ID" valueNumeric="3"/>
+            <column name="CONTENT"
+                    value="Шоу Tuning World Bodensee, неотъемлемой частью которого является конкурс красоты, проводится в Германии с 2003 года. Сам же календарь обычно выпускают ограниченным тиражом в 1500 экземпляров.&#10;"/>
+            <column name="CREATED" valueDate="2018-10-11T16:39:56"/>
+            <column name="USER_ID" valueNumeric="3"/>
+            <column name="NEWS_ID" valueNumeric="2"/>
+        </insert>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-39">
+        <createTable tableName="T_BUISNESS_CARD">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="TITLE" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FULL_NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="WORKING_TELEPHONE" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-40">
+        <createIndex indexName="FKb5d0apamthl7dvv4kpkuj5wkk" tableName="T_COMMENT">
+            <column name="USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="arthurstrokov (generated)" id="1538591270217-41">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="T_BUISNESS_CARD"
+                                 constraintName="FKb5d0apamthl7dvv4kpkuj5wjj" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="ID" referencedTableName="T_USER" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
+        <!--
+        next 39
+        permission next 30
+        -->
