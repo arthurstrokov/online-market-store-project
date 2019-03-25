@@ -7,19 +7,19 @@
             Разрешение экрана 1366x768 (HD)
             Модель процессора Intel Celeron N3060
         </description>
-        <uniqueNumber>0</uniqueNumber>	
+        <uniqueNumber>0</uniqueNumber>
         <price>1120.27</price>
-	<isAlive>true</isAlive>
+        <isAlive>true</isAlive>
     </thing>
     <thing>
         <name>ASUS ZENBOOK UX310UA</name>
         <description>Процессор: Intel Core i3 – i5 |
-		Графика: Intel HD Graphics 620 | Оперативная память: 8 Гб |
-            	Экран: 13,3-дюймовый QHD+ (3200 x 1800) 
-		Встроенная память: 256 Гб SSD;
+            Графика: Intel HD Graphics 620 | Оперативная память: 8 Гб |
+            Экран: 13,3-дюймовый QHD+ (3200 x 1800)
+            Встроенная память: 256 Гб SSD;
         </description>
-	<uniqueNumber>0</uniqueNumber>
+        <uniqueNumber>0</uniqueNumber>
         <price>1350.55</price>
-	<isAlive>true</isAlive>        
+        <isAlive>true</isAlive>
     </thing>
 </store>

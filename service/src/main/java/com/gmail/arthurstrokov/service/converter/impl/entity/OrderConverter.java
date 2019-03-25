@@ -18,12 +18,16 @@ import java.util.stream.Collectors;
 @Component("orderEntityConverter")
 public class OrderConverter implements EntityConverter<Order, OrderDTO> {
 
+    private final EntityConverter<Item, ItemDTO> itemEntityConverter;
+    private final EntityConverter<User, UserDTO> userEntityConverter;
+
     @Autowired
-    @Qualifier("itemEntityConverter")
-    private EntityConverter<Item, ItemDTO> itemEntityConverter;
-    @Autowired
-    @Qualifier("userEntityConverter")
-    private EntityConverter<User, UserDTO> userEntityConverter;
+    public OrderConverter(
+            @Qualifier("itemEntityConverter") EntityConverter<Item, ItemDTO> itemEntityConverter,
+            @Qualifier("userEntityConverter") EntityConverter<User, UserDTO> userEntityConverter) {
+        this.itemEntityConverter = itemEntityConverter;
+        this.userEntityConverter = userEntityConverter;
+    }
 
     @Override
     public Order toEntity(OrderDTO dto) {

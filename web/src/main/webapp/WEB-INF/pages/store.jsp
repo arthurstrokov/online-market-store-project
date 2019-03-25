@@ -59,7 +59,7 @@
                                     <th>${item.description}</th>
                                     <th>${item.uniqueNumber}</th>
                                     <th>${item.price}</th>
-                                    <th>${item.alive}</th>
+                                    <th>${item.isAlive}</th>
                                     <td>
                                         <a href="${pageContext.request.contextPath}/store/${item.id}/softdelete"
                                            class="btn btn-primary"

@@ -14,14 +14,14 @@ public class ItemDTOConverter implements DTOConverter<ItemDTO, Item> {
 
     @Override
     public ItemDTO toDTO(Item entity) {
-        ItemDTO item = new ItemDTO();
-        item.setId(entity.getId());
-        item.setName(entity.getName());
-        item.setDescription(entity.getDescription());
-        item.setUniqueNumber(entity.getUniqueNumber());
-        item.setPrice(entity.getPrice());
-        item.setAlive(entity.getIsAlive());
-        return item;
+        ItemDTO itemDTO = new ItemDTO();
+        itemDTO.setId(entity.getId());
+        itemDTO.setName(entity.getName());
+        itemDTO.setDescription(entity.getDescription());
+        itemDTO.setUniqueNumber(entity.getUniqueNumber());
+        itemDTO.setPrice(entity.getPrice());
+        itemDTO.setIsAlive(entity.getIsAlive());
+        return itemDTO;
     }
 
     @Override

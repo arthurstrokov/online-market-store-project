@@ -1,7 +1,12 @@
 package com.gmail.arthurstrokov.service.dto;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Objects;
 
+@Data
+@NoArgsConstructor
 public class BuisnessCardDTO {
 
     private Long id;
@@ -9,57 +14,6 @@ public class BuisnessCardDTO {
     private String fullName;
     private String workingTelephone;
     private UserDTO user;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getWorkingTelephone() {
-        return workingTelephone;
-    }
-
-    public void setWorkingTelephone(String workingTelephone) {
-        this.workingTelephone = workingTelephone;
-    }
-
-    public UserDTO getUser() {
-        return user;
-    }
-
-    public void setUser(UserDTO user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "BuisnessCardDTO{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", workingTelephone='" + workingTelephone + '\'' +
-                ", user=" + user +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {

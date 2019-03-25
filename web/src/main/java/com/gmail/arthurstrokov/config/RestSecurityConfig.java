@@ -11,7 +11,7 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationEn
 @Configuration
 @Order(1)
 public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
-    
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/api/**")

@@ -1,56 +1,19 @@
 package com.gmail.arthurstrokov.service.dto;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Data
+@NoArgsConstructor
 public class ProfileDTO implements Serializable {
 
     private Long userId;
     private String address;
     private String phone;
     private UserDTO user;
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public UserDTO getUser() {
-        return user;
-    }
-
-    public void setUser(UserDTO user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "ProfileDTO{" +
-                "userId=" + userId +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                ", user=" + user +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {

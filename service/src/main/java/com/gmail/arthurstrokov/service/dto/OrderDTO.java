@@ -1,9 +1,14 @@
 package com.gmail.arthurstrokov.service.dto;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Data
+@NoArgsConstructor
 public class OrderDTO implements Serializable {
 
     private Long id;
@@ -12,66 +17,6 @@ public class OrderDTO implements Serializable {
     private String status;
     private UserDTO user;
     private ItemDTO item;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
-    }
-
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public UserDTO getUser() {
-        return user;
-    }
-
-    public void setUser(UserDTO user) {
-        this.user = user;
-    }
-
-    public ItemDTO getItem() {
-        return item;
-    }
-
-    public void setItem(ItemDTO item) {
-        this.item = item;
-    }
-
-    @Override
-    public String toString() {
-        return "OrderDTO{" +
-                "id=" + id +
-                ", created=" + created +
-                ", quantity=" + quantity +
-                ", status='" + status + '\'' +
-                ", user=" + user +
-                ", item=" + item +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {
