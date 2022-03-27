@@ -107,10 +107,10 @@
         <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <jstl.version>1.2</jstl.version>
-        <log4j-core.version>2.11.1</log4j-core.version>
-        <log4j-api.version>2.11.1</log4j-api.version>
-        <log4j-web.version>2.11.1</log4j-web.version>
-        <log4j-slf4j-impl.version>2.11.1</log4j-slf4j-impl.version>
+        <log4j-core.version>2.17.1</log4j-core.version>
+        <log4j-api.version>2.17.1</log4j-api.version>
+        <log4j-web.version>2.17.1</log4j-web.version>
+        <log4j-slf4j-impl.version>2.17.1</log4j-slf4j-impl.version>
         <junit.jupiter.version>5.3.1</junit.jupiter.version>
         <junit.version>4.12</junit.version>
         <spring.version>5.1.0.RELEASE</spring.version>
