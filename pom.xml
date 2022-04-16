@@ -6,7 +6,7 @@
     <artifactId>store</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>store</name>
+    <name>online-market-store-project</name>
     <modules>
         <module>dao</module>
         <module>service</module>
@@ -29,19 +29,19 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>${spring.version}</version>
+            <version>5.6.2</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>${spring.version}</version>
+            <version>5.6.2</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
-            <version>${spring.version}</version>
+            <version>5.6.2</version>
         </dependency>
         <!--https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core-->
         <dependency>
@@ -107,19 +107,19 @@
         <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <jstl.version>1.2</jstl.version>
-        <log4j-core.version>2.17.1</log4j-core.version>
-        <log4j-api.version>2.17.1</log4j-api.version>
-        <log4j-web.version>2.17.1</log4j-web.version>
-        <log4j-slf4j-impl.version>2.17.1</log4j-slf4j-impl.version>
-        <junit.jupiter.version>5.3.1</junit.jupiter.version>
-        <junit.version>4.13.1</junit.version>
-        <spring.version>5.2.21.RELEASE</spring.version>
+        <log4j-core.version>2.17.2</log4j-core.version>
+        <log4j-api.version>2.17.2</log4j-api.version>
+        <log4j-web.version>2.17.2</log4j-web.version>
+        <log4j-slf4j-impl.version>2.17.2</log4j-slf4j-impl.version>
+        <junit.jupiter.version>5.8.2</junit.jupiter.version>
+        <junit.version>4.13.2</junit.version>
+        <spring.version>5.3.19</spring.version>
         <maven.war.plugin.version>3.2.2</maven.war.plugin.version>
         <maven.surefire.plugin.version>2.22.0</maven.surefire.plugin.version>
         <maven.skip.test>true</maven.skip.test>
         <liquibase.version>3.6.2</liquibase.version>
-        <for.rest.api.jackson.core.version>2.13.2.1</for.rest.api.jackson.core.version>
-        <fileupload.version>1.3.3</fileupload.version>
+        <for.rest.api.jackson.core.version>2.13.2.2</for.rest.api.jackson.core.version>
+        <fileupload.version>1.4</fileupload.version>
     </properties>
     <build>
         <plugins>
